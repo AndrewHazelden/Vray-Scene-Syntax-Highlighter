@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+
+<!-- 
+
+ Vray Scene Language Module for BBEdit and TextWrangler
+  Version 1.0 - January 19, 2015
+
+  Created by Andrew Hazelden
+  andrew@andrewhazelden.com
+  http://www.andrewhazelden.com
+  https://twitter.com/andrewhazelden
+  
+  Released under a Creative Commons Attribution-ShareAlike License:
+	<http://creativecommons.org/licenses/by-sa/2.0/>
+
+  To install, copy the Vray-Scene.plist file here:
+    
+      ~/Library/Application Support/BBEdit/Language Modules/
+
+  or here:
+
+    ~/Library/Application Support/TextWrangler/Language Modules/
+
+  and relaunch BBEdit or TextWrangler.
+  
+  If the Language Modules folder doesn't exist yet, you can create it using the terminal command: 
+  mkdir -p " ~/Library/Application Support/BBEdit/Language Modules/"
+  
+  or
+  
+  mkdir -p " ~/Library/Application Support/TextWrangler/Language Modules/"
+
+-->
+
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+
+	<key>BBLMColorsSyntax</key>
+	<true/>
+
+	<key>Copyright</key>
+	<string>Copyright © 2015, Andrew Hazelden</string>
+	
+	<key>Author</key>
+	<string>Andrew Hazelden</string>
+	
+	<key>Version</key>
+	<string>1.0</string>
+
+	<key>BBLMIsCaseSensitive</key>
+	<false/>
+
+	<key>BBLMLanguageCode</key>
+	<string>VRSC</string>
+
+	<key>BBLMLanguageDisplayName</key>
+	<string>Vray Scene</string>
+
+	<key>BBLMScansFunctions</key>
+	<false/>
+  
+	<key>BBLMSuffixMap</key> 
+	<array> 
+	<dict> 
+	  <key>BBLMLanguageSuffix</key> 
+	  <string>.vrscene</string>
+	</dict>
+	</array> 
+ 
+	<key>BBLMPreferredFilenameExtension</key>
+	<string>vrscene</string>
+
+	<key>BBLMSupportsTextCompletion</key>
+	<true/>
+
+	<key>BBLMCommentLineDefault</key>
+	<string>//</string>
+
+	<key>BBLMKeywordList</key>
+	<array>
+    <!-- Vray Object Types Start -->
+    <string>BRDFDiffuse</string>
+    <string>BitmapBuffer</string>
+    <string>CameraDefault</string>
+    <string>DomemasterStereo</string>
+    <string>FilterArea</string>
+    <string>FloatToTex</string>
+    <string>FumeFX</string>
+    <string>GeomBox</string>
+    <string>GeomStaticMesh</string>
+    <string>LatLongStereo</string>
+    <string>LightDome</string>
+    <string>LightRectangle</string>
+    <string>LightSphere</string>
+    <string>MayaGamma</string>
+    <string>MayaLightDirect</string>
+    <string>MtlSingleBRDF</string>
+    <string>Node</string>
+    <string>RenderView</string>
+    <string>SettingsCamera</string>
+    <string>SettingsCameraDof</string>
+    <string>SettingsCaustics</string>
+    <string>SettingsColorMapping</string>
+    <string>SettingsDMCGI</string>
+    <string>SettingsDMCSampler</string>
+    <string>SettingsDefaultDisplacement</string>
+    <string>SettingsEXR</string>
+    <string>SettingsEnvironment</string>
+    <string>SettingsGI</string>
+    <string>SettingsImageSampler</string>
+    <string>SettingsIrradianceMap</string>
+    <string>SettingsJPEG</string>
+    <string>SettingsLightCache</string>
+    <string>SettingsLightLinker</string>
+    <string>SettingsMotionBlur</string>
+    <string>SettingsOptions</string>
+    <string>SettingsOutput</string>
+    <string>SettingsPNG</string>
+    <string>SettingsPhotonMap</string>
+    <string>SettingsRTEngine</string>
+    <string>SettingsRaycaster</string>
+    <string>SettingsRegionsGenerator</string>
+    <string>SettingsRenderChannels</string>
+    <string>SettingsSGI</string>
+    <string>SettingsTGA</string>
+    <string>SettingsTIFF</string>
+    <string>SettingsUnitsInfo</string>
+    <string>SettingsVFB</string>
+    <string>SettingsVRST</string>
+    <string>TexAColor</string>
+    <string>TexAColorOp</string>
+    <string>TexBitmap</string>
+    <string>TexOutput</string>
+    <string>UVWGenChannel</string>
+    <string>UVWGenEnvironment</string>
+    <!-- Vray Object Types End -->
+
+    <!-- Vray Parameter Types Start -->
+    <string>AColor</string>
+    <string>Color</string>
+    <string>List</string>
+    <string>ListColor</string>
+    <string>ListColorHex</string>
+    <string>ListFloat</string>
+    <string>ListInt</string>
+    <string>ListIntHex</string>
+    <string>ListString</string>
+    <string>ListVector</string>
+    <string>ListVectorHex</string>
+    <string>Matrix</string>
+    <string>TransformHex</string>
+    <string>Transform</string>
+    <string>Vector</string>
+    <string>interpolate</string>
+    <!-- Vray Parameter Types End -->
+
+    <!-- Vray Parameters Start -->
+    <string>adaptation_only</string>
+    <string>adaptive_amount</string>
+    <string>adaptive_min_samples</string>
+    <string>adaptive_sampling</string>
+    <string>adaptive_threshold</string>
+    <string>affectDiffuse</string>
+    <string>affectReflections</string>
+    <string>affectSpecular</string>
+    <string>affect_background</string>
+    <string>affect_camera</string>
+    <string>affect_gi</string>
+    <string>affect_reflections</string>
+    <string>affect_refractions</string>
+    <string>allow_negative_colors</string>
+    <string>alpha_from_intensity</string>
+    <string>alpha_mult</string>
+    <string>amount</string>
+    <string>anim_end</string>
+    <string>anim_frame_padding</string>
+    <string>anim_ren_frame_start</string>
+    <string>anim_renumber_on</string>
+    <string>anim_renumber_start</string>
+    <string>anim_renumber_step</string>
+    <string>anim_start</string>
+    <string>anisotropy</string>
+    <string>ao_amount</string>
+    <string>ao_on</string>
+    <string>ao_radius</string>
+    <string>ao_subdivs</string>
+    <string>aperture</string>
+    <string>atmos_shadows</string>
+    <string>auto_data_window</string>
+    <string>auto_fit</string>
+    <string>auto_save</string>
+    <string>auto_save_file</string>
+    <string>auto_search_distance</string>
+    <string>bg_color</string>
+    <string>bg_tex</string>
+    <string>bias</string>
+    <string>bitmap</string>
+    <string>bits_per_channel</string>
+    <string>bloom_fill_edges</string>
+    <string>bloom_mask_intensity</string>
+    <string>bloom_mask_intensity_on</string>
+    <string>bloom_mask_mtlid</string>
+    <string>bloom_mask_mtlid_on</string>
+    <string>bloom_mask_objid</string>
+    <string>bloom_mask_objid_on</string>
+    <string>bloom_mode</string>
+    <string>bloom_on</string>
+    <string>bloom_shape</string>
+    <string>bloom_size</string>
+    <string>bloom_weight</string>
+    <string>bmp_height</string>
+    <string>bmp_width</string>
+    <string>bounces</string>
+    <string>brdf</string>
+    <string>bright_mult</string>
+    <string>bump_amount</string>
+    <string>bumped_below_surface_check</string>
+    <string>cache_df</string>
+    <string>cache_im</string>
+    <string>cache_pp</string>
+    <string>cache_type</string>
+    <string>cache_wt</string>
+    <string>calc_interp_samples</string>
+    <string>camera</string>
+    <string>causticMult</string>
+    <string>causticSubdivs</string>
+    <string>center_bias</string>
+    <string>channels</string>
+    <string>channels_diffuse</string>
+    <string>channels_raw</string>
+    <string>channels_specular</string>
+    <string>check_sample_visibility</string>
+    <string>clamp_level</string>
+    <string>clamp_output</string>
+    <string>clipping</string>
+    <string>clipping_far</string>
+    <string>clipping_near</string>
+    <string>coherent_tracing</string>
+    <string>color</string>
+    <string>color_a</string>
+    <string>color_b</string>
+    <string>color_mult</string>
+    <string>color_offset</string>
+    <string>color_space</string>
+    <string>color_tex</string>
+    <string>color_tex_mult</string>
+    <string>color_threshold</string>
+    <string>compression</string>
+    <string>contrast</string>
+    <string>contrast_base</string>
+    <string>convex_hull_estimate</string>
+    <string>cpu_bundle_size</string>
+    <string>cpu_samples_per_pixel</string>
+    <string>crop_u</string>
+    <string>crop_v</string>
+    <string>curve</string>
+    <string>cutoffThreshold</string>
+    <string>dark_mult</string>
+    <string>deep_merge_coeff</string>
+    <string>deep_merge_mode</string>
+    <string>depth</string>
+    <string>detail_enhancement</string>
+    <string>detail_radius</string>
+    <string>detail_scale</string>
+    <string>detail_subdivs_mult</string>
+    <string>diffuseMult</string>
+    <string>diffuse_contribution</string>
+    <string>directional</string>
+    <string>dist</string>
+    <string>distance_threshold</string>
+    <string>div_shade_subdivs</string>
+    <string>dmc_maxSubdivs</string>
+    <string>dmc_minSubdivs</string>
+    <string>dmc_show_samples</string>
+    <string>dmc_threshold</string>
+    <string>do_deep</string>
+    <string>do_deep_vel</string>
+    <string>do_fire</string>
+    <string>do_fuel</string>
+    <string>do_smoke</string>
+    <string>dome_emitRadius</string>
+    <string>dome_rayDistance</string>
+    <string>dome_rayDistanceMode</string>
+    <string>dome_spherical</string>
+    <string>dome_targetRadius</string>
+    <string>dome_tex</string>
+    <string>dont_delete</string>
+    <string>doubleSided</string>
+    <string>double_sided</string>
+    <string>dr_assetsCacheLimitType</string>
+    <string>dr_assetsCacheLimitValue</string>
+    <string>dr_overwriteLocalCacheSetting</string>
+    <string>dr_overwriteLocalCacheSettings</string>
+    <string>duration</string>
+    <string>duvw_scale</string>
+    <string>dynMemLimit</string>
+    <string>dynamic_geometry</string>
+    <string>dynbuckets</string>
+    <string>edgeLength</string>
+    <string>edge_visibility</string>
+    <string>embreeHighPrec</string>
+    <string>embreeLowMemory</string>
+    <string>embreeRayPackets</string>
+    <string>embreeUse</string>
+    <string>embreeUseMB</string>
+    <string>enable_mask</string>
+    <string>enabled</string>
+    <string>extra_attributes</string>
+    <string>faceLevelCoef</string>
+    <string>faceNormals</string>
+    <string>face_mtlIDs</string>
+    <string>faces</string>
+    <string>falloff_map</string>
+    <string>falloff_strength</string>
+    <string>falloff_type</string>
+    <string>falloff_use_map</string>
+    <string>file</string>
+    <string>film_offset_x</string>
+    <string>film_offset_y</string>
+    <string>filter_blur</string>
+    <string>filter_samples</string>
+    <string>filter_size</string>
+    <string>filter_type</string>
+    <string>fire_alpha</string>
+    <string>fire_brightness</string>
+    <string>fire_col_arr</string>
+    <string>fire_color_source</string>
+    <string>fire_gi_mult</string>
+    <string>fire_opac_arr</string>
+    <string>fire_opac_map</string>
+    <string>fire_opac_map_coords</string>
+    <string>fire_opac_map_stren</string>
+    <string>fire_opacity</string>
+    <string>first_poly_vertices</string>
+    <string>fixed_subdivs</string>
+    <string>flip_x</string>
+    <string>flip_y</string>
+    <string>focal_dist</string>
+    <string>forward_tilt</string>
+    <string>fov</string>
+    <string>fov_angle</string>
+    <string>fov_horiz_angle</string>
+    <string>fov_vert_angle</string>
+    <string>frame_samples</string>
+    <string>frame_start</string>
+    <string>frames</string>
+    <string>frames_per_second</string>
+    <string>fuel_cast_shadows</string>
+    <string>fuel_color</string>
+    <string>fuel_color_source</string>
+    <string>fuel_gi_mult</string>
+    <string>fuel_opacity</string>
+    <string>fuel_rcv_shadows</string>
+    <string>fuel_vis_falloff</string>
+    <string>gamma</string>
+    <string>geom_backfaceCull</string>
+    <string>geom_displacement</string>
+    <string>geom_doHidden</string>
+    <string>geom_samples</string>
+    <string>geometry</string>
+    <string>gi_color</string>
+    <string>gi_depth</string>
+    <string>gi_dontRenderImage</string>
+    <string>gi_tex</string>
+    <string>gi_texFilteringMultiplier</string>
+    <string>glare_cam_blades_on</string>
+    <string>glare_cam_fnumber</string>
+    <string>glare_cam_num_blades</string>
+    <string>glare_cam_rotation</string>
+    <string>glare_diffraction_on</string>
+    <string>glare_fill_edges</string>
+    <string>glare_image_path</string>
+    <string>glare_mask_intensity</string>
+    <string>glare_mask_intensity_on</string>
+    <string>glare_mask_mtlid</string>
+    <string>glare_mask_mtlid_on</string>
+    <string>glare_mask_objid</string>
+    <string>glare_mask_objid_on</string>
+    <string>glare_mode</string>
+    <string>glare_obstacle_image_path</string>
+    <string>glare_on</string>
+    <string>glare_size</string>
+    <string>glare_type</string>
+    <string>glare_use_obstacle_image</string>
+    <string>glare_weight</string>
+    <string>global_light_level</string>
+    <string>gpu_bundle_size</string>
+    <string>gpu_samples_per_pixel</string>
+    <string>h</string>
+    <string>head_tilt_map</string>
+    <string>head_turn_map</string>
+    <string>height</string>
+    <string>horiz_illum</string>
+    <string>ifl_end_condition</string>
+    <string>ifl_playback_rate</string>
+    <string>ifl_start_frame</string>
+    <string>ignoreLightNormals</string>
+    <string>ignored_lights</string>
+    <string>ignored_shadow_lights</string>
+    <string>im_cache_map</string>
+    <string>im_color_thresh</string>
+    <string>im_do_draft_map</string>
+    <string>im_do_illumination_map</string>
+    <string>im_map_multiplier</string>
+    <string>img_deepFile</string>
+    <string>img_dir</string>
+    <string>img_dontSaveRgbChannel</string>
+    <string>img_file</string>
+    <string>img_file_needFrameNumber</string>
+    <string>img_height</string>
+    <string>img_noAlpha</string>
+    <string>img_pixelAspect</string>
+    <string>img_rawFile</string>
+    <string>img_rawFileVFB</string>
+    <string>img_separateAlpha</string>
+    <string>img_width</string>
+    <string>input</string>
+    <string>intensity</string>
+    <string>intensity_multiplier</string>
+    <string>intensity_tex</string>
+    <string>interactive</string>
+    <string>interleaved</string>
+    <string>interp_frames</string>
+    <string>interp_samples</string>
+    <string>interpolation</string>
+    <string>interpolation_mode</string>
+    <string>interval_center</string>
+    <string>invert</string>
+    <string>invert_alpha</string>
+    <string>invisible</string>
+    <string>is_volumetric</string>
+    <string>jittering</string>
+    <string>lightPortal</string>
+    <string>light_disableSelfIllumination</string>
+    <string>light_doDefaultLights</string>
+    <string>light_doHiddenLights</string>
+    <string>light_doLights</string>
+    <string>light_doShadows</string>
+    <string>light_onlyGI</string>
+    <string>limode</string>
+    <string>linearWorkflow</string>
+    <string>load_file</string>
+    <string>lookup_mode</string>
+    <string>low_samples</string>
+    <string>map_channels</string>
+    <string>map_channels_names</string>
+    <string>mapping_type</string>
+    <string>material</string>
+    <string>maxLevels</string>
+    <string>maxSubdivs</string>
+    <string>max_density</string>
+    <string>max_photons</string>
+    <string>max_rate</string>
+    <string>max_render_time</string>
+    <string>max_sample_level</string>
+    <string>mayaApperture</string>
+    <string>mayaFocalLength</string>
+    <string>maya_compatible</string>
+    <string>meters_scale</string>
+    <string>minLeafSize</string>
+    <string>min_rate</string>
+    <string>min_shade_rate</string>
+    <string>misc_abortOnMissingAsset</string>
+    <string>misc_lowThreadPriority</string>
+    <string>misc_transferAssets</string>
+    <string>misc_useCachedAssets</string>
+    <string>mode</string>
+    <string>ms_do_multiple_scattering</string>
+    <string>ms_falloff</string>
+    <string>ms_fire_strength</string>
+    <string>ms_max_depth</string>
+    <string>ms_smoke_strength</string>
+    <string>mtl_doMaps</string>
+    <string>mtl_filterMaps</string>
+    <string>mtl_glossy</string>
+    <string>mtl_limitDepth</string>
+    <string>mtl_maxDepth</string>
+    <string>mtl_override_on</string>
+    <string>mtl_reflectionRefraction</string>
+    <string>mtl_transpCutoff</string>
+    <string>mtl_transpMaxLevels</string>
+    <string>mtl_uninvertedNormalBump</string>
+    <string>mult_a</string>
+    <string>mult_b</string>
+    <string>multipass</string>
+    <string>multiple_views</string>
+    <string>multiplier</string>
+    <string>noDecay</string>
+    <string>noise_threshold</string>
+    <string>normal_threshold</string>
+    <string>normals</string>
+    <string>nouvw_color</string>
+    <string>nsamples</string>
+    <string>num_environment_objects</string>
+    <string>num_passes</string>
+    <string>on</string>
+    <string>oor_l</string>
+    <string>oor_r</string>
+    <string>opencl_resizeTextures</string>
+    <string>opencl_texsize</string>
+    <string>opencl_textureFormat</string>
+    <string>optLevel</string>
+    <string>orthographic</string>
+    <string>orthographicWidth</string>
+    <string>override_on</string>
+    <string>ozone</string>
+    <string>parallax_distance</string>
+    <string>pb_from</string>
+    <string>pb_offset</string>
+    <string>pb_to</string>
+    <string>photometric_scale</string>
+    <string>photonSubdivs</string>
+    <string>photon_radius</string>
+    <string>placement_type</string>
+    <string>prefilter</string>
+    <string>prefilter_samples</string>
+    <string>primary_engine</string>
+    <string>primary_multiplier</string>
+    <string>primary_visibility</string>
+    <string>progressive_bundleSize</string>
+    <string>progressive_maxSubdivs</string>
+    <string>progressive_maxTime</string>
+    <string>progressive_minSubdivs</string>
+    <string>progressive_samples_per_pixel</string>
+    <string>progressive_showMask</string>
+    <string>progressive_threshold</string>
+    <string>quality</string>
+    <string>r_height</string>
+    <string>r_left</string>
+    <string>r_top</string>
+    <string>r_width</string>
+    <string>radius</string>
+    <string>randomize_samples</string>
+    <string>ray_bias</string>
+    <string>ray_distance</string>
+    <string>ray_distance_on</string>
+    <string>ray_max_intensity</string>
+    <string>ray_max_intensity_on</string>
+    <string>rect_tex</string>
+    <string>reflect_caustics</string>
+    <string>reflect_color</string>
+    <string>reflect_tex</string>
+    <string>refract_caustics</string>
+    <string>refract_color</string>
+    <string>refract_tex</string>
+    <string>relative</string>
+    <string>relements_divider</string>
+    <string>relements_separateFolders</string>
+    <string>relements_separate_rgba</string>
+    <string>render_mask_mode</string>
+    <string>retrace_bounces</string>
+    <string>retrace_corners</string>
+    <string>retrace_enabled</string>
+    <string>retrace_threshold</string>
+    <string>reverse</string>
+    <string>rgn_height</string>
+    <string>rgn_left</string>
+    <string>rgn_top</string>
+    <string>rgn_width</string>
+    <string>rotation</string>
+    <string>roughness</string>
+    <string>sample_size</string>
+    <string>saturation</string>
+    <string>scene_upDir</string>
+    <string>search_distance</string>
+    <string>secondary_engine</string>
+    <string>secondary_multiplier</string>
+    <string>seconds_scale</string>
+    <string>separate_alpha</string>
+    <string>separation</string>
+    <string>separation_map</string>
+    <string>seqtype</string>
+    <string>shadowBias</string>
+    <string>shadowColor</string>
+    <string>shadowColor_tex</string>
+    <string>shadowRadius</string>
+    <string>shadowSubdivs</string>
+    <string>shadow_color_tex</string>
+    <string>shadow_falloff</string>
+    <string>shadow_jittering</string>
+    <string>shadow_step_size</string>
+    <string>shadow_subdivs</string>
+    <string>shadows</string>
+    <string>show_calc_phase</string>
+    <string>show_direct_light</string>
+    <string>show_samples</string>
+    <string>sides_num</string>
+    <string>sides_on</string>
+    <string>size</string>
+    <string>size_multiplier</string>
+    <string>size_x</string>
+    <string>size_y</string>
+    <string>size_z</string>
+    <string>sky_model</string>
+    <string>smoke_ambient_col</string>
+    <string>smoke_cast_shadows</string>
+    <string>smoke_col_arr</string>
+    <string>smoke_color_source</string>
+    <string>smoke_gi_mult</string>
+    <string>smoke_max_dens</string>
+    <string>smoke_min_dens</string>
+    <string>smoke_opac_arr</string>
+    <string>smoke_opac_map</string>
+    <string>smoke_opac_map_coords</string>
+    <string>smoke_opac_map_stren</string>
+    <string>smoke_opacity</string>
+    <string>smoke_rcv_shadows</string>
+    <string>specular_contribution</string>
+    <string>step_size_fire</string>
+    <string>step_size_gi</string>
+    <string>step_size_smoke</string>
+    <string>stereo_eye_distance</string>
+    <string>stereo_focus</string>
+    <string>stereo_mode</string>
+    <string>storeWithIrradianceMap</string>
+    <string>store_direct_light</string>
+    <string>subdivision_edges</string>
+    <string>subdivision_jitter</string>
+    <string>subdivision_maxRate</string>
+    <string>subdivision_minRate</string>
+    <string>subdivision_normals</string>
+    <string>subdivision_normals_threshold</string>
+    <string>subdivision_show_samples</string>
+    <string>subdivision_threshold</string>
+    <string>subdivs</string>
+    <string>subdivs_mult</string>
+    <string>subpixel_mapping</string>
+    <string>sun</string>
+    <string>target_transform</string>
+    <string>tex_adaptive</string>
+    <string>tex_resolution</string>
+    <string>texmap</string>
+    <string>texture</string>
+    <string>tightBounds</string>
+    <string>tilt_compensation</string>
+    <string>time_dependent</string>
+    <string>trace_depth</string>
+    <string>transform</string>
+    <string>transparency</string>
+    <string>transparency_tex</string>
+    <string>turbidity</string>
+    <string>type</string>
+    <string>u</string>
+    <string>u_size</string>
+    <string>undersampling</string>
+    <string>unfiltered_fragment_method</string>
+    <string>units</string>
+    <string>up_vector</string>
+    <string>useMIS</string>
+    <string>use_dome_tex</string>
+    <string>use_for_glossy_rays</string>
+    <string>use_irradiance_map</string>
+    <string>use_rect_tex</string>
+    <string>user_attributes</string>
+    <string>uvw_channel</string>
+    <string>uvw_transform</string>
+    <string>uvwgen</string>
+    <string>v</string>
+    <string>v_size</string>
+    <string>vertical_mode</string>
+    <string>vertices</string>
+    <string>viewDependent</string>
+    <string>vis_falloff</string>
+    <string>visible</string>
+    <string>volume</string>
+    <string>w</string>
+    <string>world_scale</string>
+    <string>world_to_object</string>
+    <string>wrap_mode</string>
+    <string>wrap_u</string>
+    <string>wrap_v</string>
+    <string>write_integer_ids</string>
+    <string>xc</string>
+    <string>xymeans</string>
+    <string>yc</string>
+    <string>zenith_mode</string>
+    <string>zero_parallax_sphere</string>
+    <string>zoom</string>
+    <!-- Vray Parameters End-->
+
+    <string>cos</string>
+    <string>cross</string>
+    <string>length</string>
+    <string>noise</string>
+    <string>pi</string>
+    <string>pow</string>
+    <string>random</string>
+    <string>sin</string>
+    <string>sqr</string>
+    <string>sqrt</string>
+    <string>time</string>
+    <string>uniform</string>
+    
+    <string>#include</string>
+    <string>#time</string>
+    
+	</array>
+		
+	<key>Language Features</key>
+	<dict>
+		<key>Identifier and Keyword Characters</key>
+		<string>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz</string>		
+
+		<key>Open Strings 1</key>
+		<string>&quot;</string>
+		<key>Close Strings 1</key>
+		<string>&quot;</string>
+		<key>End-of-line Ends Strings 1</key>
+		<true/>
+		<key>Escape Char in Strings 1</key>
+		<string>\</string>
+		
+		<key>Open Line Comments</key> <string>;</string>
+		<key>PreferLineCommentsWhenCommenting</key>
+		<true/>
+		
+		<key>Comment Pattern</key> 
+		<string><![CDATA[
+		(?x: 
+			(\#.*?$)
+		)
+		]]></string>
+		
+		<key>String Pattern</key> 
+		<string><![CDATA[ 
+		(?x: 
+			("(\\"|[^"\r]|\\\r)*") | (?# Double-quote) 
+			(?s: 
+				<<-?(?P<delim>\w+) (?# Here-document)
+				.*?
+				(?P=delim)
+			)
+		)
+		]]></string>
+		
+		<key>Skip Pattern</key> 
+		<string><![CDATA[ 
+		(?x: 
+		(?P>comment) |
+		(?P>string)
+		)]]></string>
+	
+  </dict>
+
+</dict>
+</plist>

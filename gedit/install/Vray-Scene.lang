@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Author: Andrew Hazelden <andrew@andrewhazelden.com
+ Copyright (C) 2015 Andrew Hazelden
+
+  Released under a Creative Commons Attribution-ShareAlike License:
+  <http://creativecommons.org/licenses/by-sa/2.0/>
+  
+
+  Windows gedit language file installation
+  On Windows you need to copy the Vray-Scene.lang file to the language-specs folder located at:
+    C:\Program Files (x86)\gedit\share\gtksourceview-2.0\language-specs\Vray-Scene.lang
+    or
+    C:\Program Files\gedit\share\gtksourceview-2.0\language-specs\Vray-Scene.lang
+  
+  
+  Linux gedit language file installation
+  On Linux you need to copy the Vray-Scene.lang file to the language-specs folder located at:
+     /usr/local/share/gtksourceview-2.0/language-specs/Vray-Scene.lang
+     or
+     /usr/share/gtksourceview-2.0/language-specs/Vray-Scene.lang
+  
+-->
+
+<language id="vrscene" _name="Vray Scene" version="2.0" _section="Scripts">
+
+  <metadata>
+    <property name="mimetypes">text/plain</property>
+    <property name="globs">*.vrscene</property>
+    <property name="line-comment-start">//</property>
+  </metadata>
+
+  <styles>
+    <style id="decimal"           _name="Decimal number"      map-to="def:decimal"/>
+    <style id="float"           _name="Floating Point number"      map-to="def:decimal"/>
+    <style id="comment-numbersign"           _name="Comment"             map-to="def:comment"/>
+    <style id="string"            _name="String"              map-to="def:string"/>
+    <style id="escaped-character" _name="Escaped Character" map-to="def:special-char"/>
+    <style id="datatype" _name="datatype" map-to="def:type"/>
+    <style id="nodes" _name="nodes" map-to="def:identifier"/>
+    <style id="parameters"           _name="parameters"             map-to="def:keyword"/>
+  </styles>
+
+  <definitions>
+  <context id="vrscene">
+    <include>
+      <!-- Start of Vray Syntax Elements -->
+
+      <!-- Comments -->
+      <context id="comment-numbersign" style-ref="comment-numbersign" end-at-line-end="true">
+        <start>//</start>
+        <end>\n</end>
+        <include>
+          <context ref="def:in-line-comment"/>
+        </include>
+      </context>
+      
+      <!-- Strings -->
+       <context id="string" end-at-line-end="true" style-ref="string">
+        <start>"</start>
+        <end>"</end>
+        <include>
+          <context id="escaped-character" style-ref="escaped-character">
+            <match>\\"</match>
+          </context>
+        </include>
+      </context>
+      
+      <!-- Numbers -->
+          <context id="decimal" style-ref="decimal">
+              <match extended="true">
+                  (?&lt;![\w\.])
+                  [0-9]+[uUlL]*
+                  (?![\w\.])
+              </match>
+          </context>
+        
+          <!-- http://www.lysator.liu.se/c/ANSI-C-grammar-l.html -->
+          <context id="float" style-ref="float">
+              <match extended="true">
+                  (?&lt;![\w\.])
+                  ((\.[0-9]+ | [0-9]+\.[0-9]*) ([Ee][+-]?[0-9]*)? |
+                   ([0-9]+[Ee][+-]?[0-9]*))
+                  [fFlL]?
+                  (?![\w\.])
+              </match>
+          </context>
+
+      <context id="datatype" style-ref="datatype">
+        <!-- Vray Parameter Types Start -->
+        <keyword>AColor</keyword>
+        <keyword>Color</keyword>
+        <keyword>List</keyword>
+        <keyword>ListColor</keyword>
+        <keyword>ListColorHex</keyword>
+        <keyword>ListFloat</keyword>
+        <keyword>ListInt</keyword>
+        <keyword>ListIntHex</keyword>
+        <keyword>Listkeyword</keyword>
+        <keyword>ListVector</keyword>
+        <keyword>ListVectorHex</keyword>
+        <keyword>Matrix</keyword>
+        <keyword>TransformHex</keyword>
+        <keyword>Transform</keyword>
+        <keyword>Vector</keyword>
+        <keyword>interpolate</keyword>
+        <!-- Vray Parameter Types End -->
+      </context>
+
+      <context id="nodes" style-ref="nodes">
+        <!-- Vray Object Start -->
+        <keyword>BRDFDiffuse</keyword>
+        <keyword>BitmapBuffer</keyword>
+        <keyword>CameraDefault</keyword>
+        <keyword>DomemasterStereo</keyword>
+        <keyword>FilterArea</keyword>
+        <keyword>FloatToTex</keyword>
+        <keyword>FumeFX</keyword>
+        <keyword>GeomBox</keyword>
+        <keyword>GeomStaticMesh</keyword>
+        <keyword>LatLongStereo</keyword>
+        <keyword>LightDome</keyword>
+        <keyword>LightRectangle</keyword>
+        <keyword>LightSphere</keyword>
+        <keyword>MayaGamma</keyword>
+        <keyword>MayaLightDirect</keyword>
+        <keyword>MtlSingleBRDF</keyword>
+        <keyword>Node</keyword>
+        <keyword>RenderView</keyword>
+        <keyword>SettingsCamera</keyword>
+        <keyword>SettingsCameraDof</keyword>
+        <keyword>SettingsCaustics</keyword>
+        <keyword>SettingsColorMapping</keyword>
+        <keyword>SettingsDMCGI</keyword>
+        <keyword>SettingsDMCSampler</keyword>
+        <keyword>SettingsDefaultDisplacement</keyword>
+        <keyword>SettingsEXR</keyword>
+        <keyword>SettingsEnvironment</keyword>
+        <keyword>SettingsGI</keyword>
+        <keyword>SettingsImageSampler</keyword>
+        <keyword>SettingsIrradianceMap</keyword>
+        <keyword>SettingsJPEG</keyword>
+        <keyword>SettingsLightCache</keyword>
+        <keyword>SettingsLightLinker</keyword>
+        <keyword>SettingsMotionBlur</keyword>
+        <keyword>SettingsOptions</keyword>
+        <keyword>SettingsOutput</keyword>
+        <keyword>SettingsPNG</keyword>
+        <keyword>SettingsPhotonMap</keyword>
+        <keyword>SettingsRTEngine</keyword>
+        <keyword>SettingsRaycaster</keyword>
+        <keyword>SettingsRegionsGenerator</keyword>
+        <keyword>SettingsRenderChannels</keyword>
+        <keyword>SettingsSGI</keyword>
+        <keyword>SettingsTGA</keyword>
+        <keyword>SettingsTIFF</keyword>
+        <keyword>SettingsUnitsInfo</keyword>
+        <keyword>SettingsVFB</keyword>
+        <keyword>SettingsVRST</keyword>
+        <keyword>TexAColor</keyword>
+        <keyword>TexAColorOp</keyword>
+        <keyword>TexBitmap</keyword>
+        <keyword>TexOutput</keyword>
+        <keyword>UVWGenChannel</keyword>
+        <keyword>UVWGenEnvironment</keyword>
+        <!-- Vray Object Types End -->
+        
+         <keyword>cos</keyword>
+        <keyword>cross</keyword>
+        <keyword>length</keyword>
+        <keyword>noise</keyword>
+        <keyword>pi</keyword>
+        <keyword>pow</keyword>
+        <keyword>random</keyword>
+        <keyword>sin</keyword>
+        <keyword>sqr</keyword>
+        <keyword>sqrt</keyword>
+        <keyword>time</keyword>
+        <keyword>uniform</keyword>
+        
+        <keyword>#include</keyword>
+        <keyword>#time</keyword>
+      </context>
+
+
+      <context id="parameters" style-ref="parameters">
+        <!-- Vray Parameters Start -->
+        <keyword>adaptation_only</keyword>
+        <keyword>adaptive_amount</keyword>
+        <keyword>adaptive_min_samples</keyword>
+        <keyword>adaptive_sampling</keyword>
+        <keyword>adaptive_threshold</keyword>
+        <keyword>affectDiffuse</keyword>
+        <keyword>affectReflections</keyword>
+        <keyword>affectSpecular</keyword>
+        <keyword>affect_background</keyword>
+        <keyword>affect_camera</keyword>
+        <keyword>affect_gi</keyword>
+        <keyword>affect_reflections</keyword>
+        <keyword>affect_refractions</keyword>
+        <keyword>allow_negative_colors</keyword>
+        <keyword>alpha_from_intensity</keyword>
+        <keyword>alpha_mult</keyword>
+        <keyword>amount</keyword>
+        <keyword>anim_end</keyword>
+        <keyword>anim_frame_padding</keyword>
+        <keyword>anim_ren_frame_start</keyword>
+        <keyword>anim_renumber_on</keyword>
+        <keyword>anim_renumber_start</keyword>
+        <keyword>anim_renumber_step</keyword>
+        <keyword>anim_start</keyword>
+        <keyword>anisotropy</keyword>
+        <keyword>ao_amount</keyword>
+        <keyword>ao_on</keyword>
+        <keyword>ao_radius</keyword>
+        <keyword>ao_subdivs</keyword>
+        <keyword>aperture</keyword>
+        <keyword>atmos_shadows</keyword>
+        <keyword>auto_data_window</keyword>
+        <keyword>auto_fit</keyword>
+        <keyword>auto_save</keyword>
+        <keyword>auto_save_file</keyword>
+        <keyword>auto_search_distance</keyword>
+        <keyword>bg_color</keyword>
+        <keyword>bg_tex</keyword>
+        <keyword>bias</keyword>
+        <keyword>bitmap</keyword>
+        <keyword>bits_per_channel</keyword>
+        <keyword>bloom_fill_edges</keyword>
+        <keyword>bloom_mask_intensity</keyword>
+        <keyword>bloom_mask_intensity_on</keyword>
+        <keyword>bloom_mask_mtlid</keyword>
+        <keyword>bloom_mask_mtlid_on</keyword>
+        <keyword>bloom_mask_objid</keyword>
+        <keyword>bloom_mask_objid_on</keyword>
+        <keyword>bloom_mode</keyword>
+        <keyword>bloom_on</keyword>
+        <keyword>bloom_shape</keyword>
+        <keyword>bloom_size</keyword>
+        <keyword>bloom_weight</keyword>
+        <keyword>bmp_height</keyword>
+        <keyword>bmp_width</keyword>
+        <keyword>bounces</keyword>
+        <keyword>brdf</keyword>
+        <keyword>bright_mult</keyword>
+        <keyword>bump_amount</keyword>
+        <keyword>bumped_below_surface_check</keyword>
+        <keyword>cache_df</keyword>
+        <keyword>cache_im</keyword>
+        <keyword>cache_pp</keyword>
+        <keyword>cache_type</keyword>
+        <keyword>cache_wt</keyword>
+        <keyword>calc_interp_samples</keyword>
+        <keyword>camera</keyword>
+        <keyword>causticMult</keyword>
+        <keyword>causticSubdivs</keyword>
+        <keyword>center_bias</keyword>
+        <keyword>channels</keyword>
+        <keyword>channels_diffuse</keyword>
+        <keyword>channels_raw</keyword>
+        <keyword>channels_specular</keyword>
+        <keyword>check_sample_visibility</keyword>
+        <keyword>clamp_level</keyword>
+        <keyword>clamp_output</keyword>
+        <keyword>clipping</keyword>
+        <keyword>clipping_far</keyword>
+        <keyword>clipping_near</keyword>
+        <keyword>coherent_tracing</keyword>
+        <keyword>color</keyword>
+        <keyword>color_a</keyword>
+        <keyword>color_b</keyword>
+        <keyword>color_mult</keyword>
+        <keyword>color_offset</keyword>
+        <keyword>color_space</keyword>
+        <keyword>color_tex</keyword>
+        <keyword>color_tex_mult</keyword>
+        <keyword>color_threshold</keyword>
+        <keyword>compression</keyword>
+        <keyword>contrast</keyword>
+        <keyword>contrast_base</keyword>
+        <keyword>convex_hull_estimate</keyword>
+        <keyword>cpu_bundle_size</keyword>
+        <keyword>cpu_samples_per_pixel</keyword>
+        <keyword>crop_u</keyword>
+        <keyword>crop_v</keyword>
+        <keyword>curve</keyword>
+        <keyword>cutoffThreshold</keyword>
+        <keyword>dark_mult</keyword>
+        <keyword>deep_merge_coeff</keyword>
+        <keyword>deep_merge_mode</keyword>
+        <keyword>depth</keyword>
+        <keyword>detail_enhancement</keyword>
+        <keyword>detail_radius</keyword>
+        <keyword>detail_scale</keyword>
+        <keyword>detail_subdivs_mult</keyword>
+        <keyword>diffuseMult</keyword>
+        <keyword>diffuse_contribution</keyword>
+        <keyword>directional</keyword>
+        <keyword>dist</keyword>
+        <keyword>distance_threshold</keyword>
+        <keyword>div_shade_subdivs</keyword>
+        <keyword>dmc_maxSubdivs</keyword>
+        <keyword>dmc_minSubdivs</keyword>
+        <keyword>dmc_show_samples</keyword>
+        <keyword>dmc_threshold</keyword>
+        <keyword>do_deep</keyword>
+        <keyword>do_deep_vel</keyword>
+        <keyword>do_fire</keyword>
+        <keyword>do_fuel</keyword>
+        <keyword>do_smoke</keyword>
+        <keyword>dome_emitRadius</keyword>
+        <keyword>dome_rayDistance</keyword>
+        <keyword>dome_rayDistanceMode</keyword>
+        <keyword>dome_spherical</keyword>
+        <keyword>dome_targetRadius</keyword>
+        <keyword>dome_tex</keyword>
+        <keyword>dont_delete</keyword>
+        <keyword>doubleSided</keyword>
+        <keyword>double_sided</keyword>
+        <keyword>dr_assetsCacheLimitType</keyword>
+        <keyword>dr_assetsCacheLimitValue</keyword>
+        <keyword>dr_overwriteLocalCacheSetting</keyword>
+        <keyword>dr_overwriteLocalCacheSettings</keyword>
+        <keyword>duration</keyword>
+        <keyword>duvw_scale</keyword>
+        <keyword>dynMemLimit</keyword>
+        <keyword>dynamic_geometry</keyword>
+        <keyword>dynbuckets</keyword>
+        <keyword>edgeLength</keyword>
+        <keyword>edge_visibility</keyword>
+        <keyword>embreeHighPrec</keyword>
+        <keyword>embreeLowMemory</keyword>
+        <keyword>embreeRayPackets</keyword>
+        <keyword>embreeUse</keyword>
+        <keyword>embreeUseMB</keyword>
+        <keyword>enable_mask</keyword>
+        <keyword>enabled</keyword>
+        <keyword>extra_attributes</keyword>
+        <keyword>faceLevelCoef</keyword>
+        <keyword>faceNormals</keyword>
+        <keyword>face_mtlIDs</keyword>
+        <keyword>faces</keyword>
+        <keyword>falloff_map</keyword>
+        <keyword>falloff_strength</keyword>
+        <keyword>falloff_type</keyword>
+        <keyword>falloff_use_map</keyword>
+        <keyword>file</keyword>
+        <keyword>film_offset_x</keyword>
+        <keyword>film_offset_y</keyword>
+        <keyword>filter_blur</keyword>
+        <keyword>filter_samples</keyword>
+        <keyword>filter_size</keyword>
+        <keyword>filter_type</keyword>
+        <keyword>fire_alpha</keyword>
+        <keyword>fire_brightness</keyword>
+        <keyword>fire_col_arr</keyword>
+        <keyword>fire_color_source</keyword>
+        <keyword>fire_gi_mult</keyword>
+        <keyword>fire_opac_arr</keyword>
+        <keyword>fire_opac_map</keyword>
+        <keyword>fire_opac_map_coords</keyword>
+        <keyword>fire_opac_map_stren</keyword>
+        <keyword>fire_opacity</keyword>
+        <keyword>first_poly_vertices</keyword>
+        <keyword>fixed_subdivs</keyword>
+        <keyword>flip_x</keyword>
+        <keyword>flip_y</keyword>
+        <keyword>focal_dist</keyword>
+        <keyword>forward_tilt</keyword>
+        <keyword>fov</keyword>
+        <keyword>fov_angle</keyword>
+        <keyword>fov_horiz_angle</keyword>
+        <keyword>fov_vert_angle</keyword>
+        <keyword>frame_samples</keyword>
+        <keyword>frame_start</keyword>
+        <keyword>frames</keyword>
+        <keyword>frames_per_second</keyword>
+        <keyword>fuel_cast_shadows</keyword>
+        <keyword>fuel_color</keyword>
+        <keyword>fuel_color_source</keyword>
+        <keyword>fuel_gi_mult</keyword>
+        <keyword>fuel_opacity</keyword>
+        <keyword>fuel_rcv_shadows</keyword>
+        <keyword>fuel_vis_falloff</keyword>
+        <keyword>gamma</keyword>
+        <keyword>geom_backfaceCull</keyword>
+        <keyword>geom_displacement</keyword>
+        <keyword>geom_doHidden</keyword>
+        <keyword>geom_samples</keyword>
+        <keyword>geometry</keyword>
+        <keyword>gi_color</keyword>
+        <keyword>gi_depth</keyword>
+        <keyword>gi_dontRenderImage</keyword>
+        <keyword>gi_tex</keyword>
+        <keyword>gi_texFilteringMultiplier</keyword>
+        <keyword>glare_cam_blades_on</keyword>
+        <keyword>glare_cam_fnumber</keyword>
+        <keyword>glare_cam_num_blades</keyword>
+        <keyword>glare_cam_rotation</keyword>
+        <keyword>glare_diffraction_on</keyword>
+        <keyword>glare_fill_edges</keyword>
+        <keyword>glare_image_path</keyword>
+        <keyword>glare_mask_intensity</keyword>
+        <keyword>glare_mask_intensity_on</keyword>
+        <keyword>glare_mask_mtlid</keyword>
+        <keyword>glare_mask_mtlid_on</keyword>
+        <keyword>glare_mask_objid</keyword>
+        <keyword>glare_mask_objid_on</keyword>
+        <keyword>glare_mode</keyword>
+        <keyword>glare_obstacle_image_path</keyword>
+        <keyword>glare_on</keyword>
+        <keyword>glare_size</keyword>
+        <keyword>glare_type</keyword>
+        <keyword>glare_use_obstacle_image</keyword>
+        <keyword>glare_weight</keyword>
+        <keyword>global_light_level</keyword>
+        <keyword>gpu_bundle_size</keyword>
+        <keyword>gpu_samples_per_pixel</keyword>
+        <keyword>h</keyword>
+        <keyword>head_tilt_map</keyword>
+        <keyword>head_turn_map</keyword>
+        <keyword>height</keyword>
+        <keyword>horiz_illum</keyword>
+        <keyword>ifl_end_condition</keyword>
+        <keyword>ifl_playback_rate</keyword>
+        <keyword>ifl_start_frame</keyword>
+        <keyword>ignoreLightNormals</keyword>
+        <keyword>ignored_lights</keyword>
+        <keyword>ignored_shadow_lights</keyword>
+        <keyword>im_cache_map</keyword>
+        <keyword>im_color_thresh</keyword>
+        <keyword>im_do_draft_map</keyword>
+        <keyword>im_do_illumination_map</keyword>
+        <keyword>im_map_multiplier</keyword>
+        <keyword>img_deepFile</keyword>
+        <keyword>img_dir</keyword>
+        <keyword>img_dontSaveRgbChannel</keyword>
+        <keyword>img_file</keyword>
+        <keyword>img_file_needFrameNumber</keyword>
+        <keyword>img_height</keyword>
+        <keyword>img_noAlpha</keyword>
+        <keyword>img_pixelAspect</keyword>
+        <keyword>img_rawFile</keyword>
+        <keyword>img_rawFileVFB</keyword>
+        <keyword>img_separateAlpha</keyword>
+        <keyword>img_width</keyword>
+        <keyword>input</keyword>
+        <keyword>intensity</keyword>
+        <keyword>intensity_multiplier</keyword>
+        <keyword>intensity_tex</keyword>
+        <keyword>interactive</keyword>
+        <keyword>interleaved</keyword>
+        <keyword>interp_frames</keyword>
+        <keyword>interp_samples</keyword>
+        <keyword>interpolation</keyword>
+        <keyword>interpolation_mode</keyword>
+        <keyword>interval_center</keyword>
+        <keyword>invert</keyword>
+        <keyword>invert_alpha</keyword>
+        <keyword>invisible</keyword>
+        <keyword>is_volumetric</keyword>
+        <keyword>jittering</keyword>
+        <keyword>lightPortal</keyword>
+        <keyword>light_disableSelfIllumination</keyword>
+        <keyword>light_doDefaultLights</keyword>
+        <keyword>light_doHiddenLights</keyword>
+        <keyword>light_doLights</keyword>
+        <keyword>light_doShadows</keyword>
+        <keyword>light_onlyGI</keyword>
+        <keyword>limode</keyword>
+        <keyword>linearWorkflow</keyword>
+        <keyword>load_file</keyword>
+        <keyword>lookup_mode</keyword>
+        <keyword>low_samples</keyword>
+        <keyword>map_channels</keyword>
+        <keyword>map_channels_names</keyword>
+        <keyword>mapping_type</keyword>
+        <keyword>material</keyword>
+        <keyword>maxLevels</keyword>
+        <keyword>maxSubdivs</keyword>
+        <keyword>max_density</keyword>
+        <keyword>max_photons</keyword>
+        <keyword>max_rate</keyword>
+        <keyword>max_render_time</keyword>
+        <keyword>max_sample_level</keyword>
+        <keyword>mayaApperture</keyword>
+        <keyword>mayaFocalLength</keyword>
+        <keyword>maya_compatible</keyword>
+        <keyword>meters_scale</keyword>
+        <keyword>minLeafSize</keyword>
+        <keyword>min_rate</keyword>
+        <keyword>min_shade_rate</keyword>
+        <keyword>misc_abortOnMissingAsset</keyword>
+        <keyword>misc_lowThreadPriority</keyword>
+        <keyword>misc_transferAssets</keyword>
+        <keyword>misc_useCachedAssets</keyword>
+        <keyword>mode</keyword>
+        <keyword>ms_do_multiple_scattering</keyword>
+        <keyword>ms_falloff</keyword>
+        <keyword>ms_fire_strength</keyword>
+        <keyword>ms_max_depth</keyword>
+        <keyword>ms_smoke_strength</keyword>
+        <keyword>mtl_doMaps</keyword>
+        <keyword>mtl_filterMaps</keyword>
+        <keyword>mtl_glossy</keyword>
+        <keyword>mtl_limitDepth</keyword>
+        <keyword>mtl_maxDepth</keyword>
+        <keyword>mtl_override_on</keyword>
+        <keyword>mtl_reflectionRefraction</keyword>
+        <keyword>mtl_transpCutoff</keyword>
+        <keyword>mtl_transpMaxLevels</keyword>
+        <keyword>mtl_uninvertedNormalBump</keyword>
+        <keyword>mult_a</keyword>
+        <keyword>mult_b</keyword>
+        <keyword>multipass</keyword>
+        <keyword>multiple_views</keyword>
+        <keyword>multiplier</keyword>
+        <keyword>noDecay</keyword>
+        <keyword>noise_threshold</keyword>
+        <keyword>normal_threshold</keyword>
+        <keyword>normals</keyword>
+        <keyword>nouvw_color</keyword>
+        <keyword>nsamples</keyword>
+        <keyword>num_environment_objects</keyword>
+        <keyword>num_passes</keyword>
+        <keyword>on</keyword>
+        <keyword>oor_l</keyword>
+        <keyword>oor_r</keyword>
+        <keyword>opencl_resizeTextures</keyword>
+        <keyword>opencl_texsize</keyword>
+        <keyword>opencl_textureFormat</keyword>
+        <keyword>optLevel</keyword>
+        <keyword>orthographic</keyword>
+        <keyword>orthographicWidth</keyword>
+        <keyword>override_on</keyword>
+        <keyword>ozone</keyword>
+        <keyword>parallax_distance</keyword>
+        <keyword>pb_from</keyword>
+        <keyword>pb_offset</keyword>
+        <keyword>pb_to</keyword>
+        <keyword>photometric_scale</keyword>
+        <keyword>photonSubdivs</keyword>
+        <keyword>photon_radius</keyword>
+        <keyword>placement_type</keyword>
+        <keyword>prefilter</keyword>
+        <keyword>prefilter_samples</keyword>
+        <keyword>primary_engine</keyword>
+        <keyword>primary_multiplier</keyword>
+        <keyword>primary_visibility</keyword>
+        <keyword>progressive_bundleSize</keyword>
+        <keyword>progressive_maxSubdivs</keyword>
+        <keyword>progressive_maxTime</keyword>
+        <keyword>progressive_minSubdivs</keyword>
+        <keyword>progressive_samples_per_pixel</keyword>
+        <keyword>progressive_showMask</keyword>
+        <keyword>progressive_threshold</keyword>
+        <keyword>quality</keyword>
+        <keyword>r_height</keyword>
+        <keyword>r_left</keyword>
+        <keyword>r_top</keyword>
+        <keyword>r_width</keyword>
+        <keyword>radius</keyword>
+        <keyword>randomize_samples</keyword>
+        <keyword>ray_bias</keyword>
+        <keyword>ray_distance</keyword>
+        <keyword>ray_distance_on</keyword>
+        <keyword>ray_max_intensity</keyword>
+        <keyword>ray_max_intensity_on</keyword>
+        <keyword>rect_tex</keyword>
+        <keyword>reflect_caustics</keyword>
+        <keyword>reflect_color</keyword>
+        <keyword>reflect_tex</keyword>
+        <keyword>refract_caustics</keyword>
+        <keyword>refract_color</keyword>
+        <keyword>refract_tex</keyword>
+        <keyword>relative</keyword>
+        <keyword>relements_divider</keyword>
+        <keyword>relements_separateFolders</keyword>
+        <keyword>relements_separate_rgba</keyword>
+        <keyword>render_mask_mode</keyword>
+        <keyword>retrace_bounces</keyword>
+        <keyword>retrace_corners</keyword>
+        <keyword>retrace_enabled</keyword>
+        <keyword>retrace_threshold</keyword>
+        <keyword>reverse</keyword>
+        <keyword>rgn_height</keyword>
+        <keyword>rgn_left</keyword>
+        <keyword>rgn_top</keyword>
+        <keyword>rgn_width</keyword>
+        <keyword>rotation</keyword>
+        <keyword>roughness</keyword>
+        <keyword>sample_size</keyword>
+        <keyword>saturation</keyword>
+        <keyword>scene_upDir</keyword>
+        <keyword>search_distance</keyword>
+        <keyword>secondary_engine</keyword>
+        <keyword>secondary_multiplier</keyword>
+        <keyword>seconds_scale</keyword>
+        <keyword>separate_alpha</keyword>
+        <keyword>separation</keyword>
+        <keyword>separation_map</keyword>
+        <keyword>seqtype</keyword>
+        <keyword>shadowBias</keyword>
+        <keyword>shadowColor</keyword>
+        <keyword>shadowColor_tex</keyword>
+        <keyword>shadowRadius</keyword>
+        <keyword>shadowSubdivs</keyword>
+        <keyword>shadow_color_tex</keyword>
+        <keyword>shadow_falloff</keyword>
+        <keyword>shadow_jittering</keyword>
+        <keyword>shadow_step_size</keyword>
+        <keyword>shadow_subdivs</keyword>
+        <keyword>shadows</keyword>
+        <keyword>show_calc_phase</keyword>
+        <keyword>show_direct_light</keyword>
+        <keyword>show_samples</keyword>
+        <keyword>sides_num</keyword>
+        <keyword>sides_on</keyword>
+        <keyword>size</keyword>
+        <keyword>size_multiplier</keyword>
+        <keyword>size_x</keyword>
+        <keyword>size_y</keyword>
+        <keyword>size_z</keyword>
+        <keyword>sky_model</keyword>
+        <keyword>smoke_ambient_col</keyword>
+        <keyword>smoke_cast_shadows</keyword>
+        <keyword>smoke_col_arr</keyword>
+        <keyword>smoke_color_source</keyword>
+        <keyword>smoke_gi_mult</keyword>
+        <keyword>smoke_max_dens</keyword>
+        <keyword>smoke_min_dens</keyword>
+        <keyword>smoke_opac_arr</keyword>
+        <keyword>smoke_opac_map</keyword>
+        <keyword>smoke_opac_map_coords</keyword>
+        <keyword>smoke_opac_map_stren</keyword>
+        <keyword>smoke_opacity</keyword>
+        <keyword>smoke_rcv_shadows</keyword>
+        <keyword>specular_contribution</keyword>
+        <keyword>step_size_fire</keyword>
+        <keyword>step_size_gi</keyword>
+        <keyword>step_size_smoke</keyword>
+        <keyword>stereo_eye_distance</keyword>
+        <keyword>stereo_focus</keyword>
+        <keyword>stereo_mode</keyword>
+        <keyword>storeWithIrradianceMap</keyword>
+        <keyword>store_direct_light</keyword>
+        <keyword>subdivision_edges</keyword>
+        <keyword>subdivision_jitter</keyword>
+        <keyword>subdivision_maxRate</keyword>
+        <keyword>subdivision_minRate</keyword>
+        <keyword>subdivision_normals</keyword>
+        <keyword>subdivision_normals_threshold</keyword>
+        <keyword>subdivision_show_samples</keyword>
+        <keyword>subdivision_threshold</keyword>
+        <keyword>subdivs</keyword>
+        <keyword>subdivs_mult</keyword>
+        <keyword>subpixel_mapping</keyword>
+        <keyword>sun</keyword>
+        <keyword>target_transform</keyword>
+        <keyword>tex_adaptive</keyword>
+        <keyword>tex_resolution</keyword>
+        <keyword>texmap</keyword>
+        <keyword>texture</keyword>
+        <keyword>tightBounds</keyword>
+        <keyword>tilt_compensation</keyword>
+        <keyword>time_dependent</keyword>
+        <keyword>trace_depth</keyword>
+        <keyword>transform</keyword>
+        <keyword>transparency</keyword>
+        <keyword>transparency_tex</keyword>
+        <keyword>turbidity</keyword>
+        <keyword>type</keyword>
+        <keyword>u</keyword>
+        <keyword>u_size</keyword>
+        <keyword>undersampling</keyword>
+        <keyword>unfiltered_fragment_method</keyword>
+        <keyword>units</keyword>
+        <keyword>up_vector</keyword>
+        <keyword>useMIS</keyword>
+        <keyword>use_dome_tex</keyword>
+        <keyword>use_for_glossy_rays</keyword>
+        <keyword>use_irradiance_map</keyword>
+        <keyword>use_rect_tex</keyword>
+        <keyword>user_attributes</keyword>
+        <keyword>uvw_channel</keyword>
+        <keyword>uvw_transform</keyword>
+        <keyword>uvwgen</keyword>
+        <keyword>v</keyword>
+        <keyword>v_size</keyword>
+        <keyword>vertical_mode</keyword>
+        <keyword>vertices</keyword>
+        <keyword>viewDependent</keyword>
+        <keyword>vis_falloff</keyword>
+        <keyword>visible</keyword>
+        <keyword>volume</keyword>
+        <keyword>w</keyword>
+        <keyword>world_scale</keyword>
+        <keyword>world_to_object</keyword>
+        <keyword>wrap_mode</keyword>
+        <keyword>wrap_u</keyword>
+        <keyword>wrap_v</keyword>
+        <keyword>write_integer_ids</keyword>
+        <keyword>xc</keyword>
+        <keyword>xymeans</keyword>
+        <keyword>yc</keyword>
+        <keyword>zenith_mode</keyword>
+        <keyword>zero_parallax_sphere</keyword>
+        <keyword>zoom</keyword>
+        <!-- Vray Parameters End-->
+        
+        </context>
+
+    <!-- End of Vray Syntax Elements -->
+    </include>
+  </context>
+</definitions>
+</language>
