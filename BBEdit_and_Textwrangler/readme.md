@@ -1,5 +1,5 @@
-# BBEdit and TextWrangler Vray Scene Codeless Language Module  #
-**Version 1.0** Released January 19, 2015    
+# BBEdit and TextWrangler Vray Syntax Highlighter  #
+**Version 1.1** Released 2016-12-17    
 by Andrew Hazelden
 
 ![Sample vrscene file](screenshots/tw_vrscene_syntax_highlighter.png)

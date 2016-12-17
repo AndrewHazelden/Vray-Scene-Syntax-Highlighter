@@ -1,5 +1,5 @@
 # Vray Scene Syntax Highlighter #
-**Version 1.0** Released January 19, 2015  
+**Version 1.1** Released 2016-12-17  
 by Andrew Hazelden
 
 ![Sample vrscene file](screenshots/vray-syntax-highlighter.png)
