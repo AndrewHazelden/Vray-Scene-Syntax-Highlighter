@@ -191,6 +191,9 @@ SettingsOutput {
   
   img_width=1920;
   img_height=858;
+  
+  //img_width=4096;
+  //img_height=2048;
 }
 
 SettingsGI {
