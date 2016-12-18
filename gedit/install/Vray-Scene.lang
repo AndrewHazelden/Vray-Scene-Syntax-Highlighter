@@ -2,7 +2,7 @@
 <!--
 
  Author: Andrew Hazelden <andrew@andrewhazelden.com
- Copyright (C) 2015 Andrew Hazelden
+ Copyright (C) 2015-2016 Andrew Hazelden
 
   Released under a Creative Commons Attribution-ShareAlike License:
   <http://creativecommons.org/licenses/by-sa/2.0/>
@@ -707,6 +707,14 @@
         <keyword>zenith_mode</keyword>
         <keyword>zero_parallax_sphere</keyword>
         <keyword>zoom</keyword>
+				<keyword>fresnel_ior</keyword>
+				<keyword>ior</keyword>
+				<keyword>cutoff</keyword>
+				<keyword>affect_shadows</keyword>
+				<keyword>back_side</keyword>
+				<keyword>transparency_tex_mult</keyword>
+				<keyword>black_color</keyword>
+				<keyword>blur_gi</keyword>
         <!-- Vray Parameters End-->
         
         </context>

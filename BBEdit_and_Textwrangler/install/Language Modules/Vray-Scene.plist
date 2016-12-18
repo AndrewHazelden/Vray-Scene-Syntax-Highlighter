@@ -5,7 +5,7 @@
 <!-- 
 
  Vray Scene Language Module for BBEdit and TextWrangler
-  Version 1.0 - January 19, 2015
+  Version 1.1 - 2016-12-18
 
   Created by Andrew Hazelden
   andrew@andrewhazelden.com
@@ -42,7 +42,7 @@
 	<true/>
 
 	<key>Copyright</key>
-	<string>Copyright © 2015, Andrew Hazelden</string>
+	<string>Copyright © 2015-2016, Andrew Hazelden</string>
 	
 	<key>Author</key>
 	<string>Andrew Hazelden</string>
@@ -679,6 +679,15 @@
     <string>zenith_mode</string>
     <string>zero_parallax_sphere</string>
     <string>zoom</string>
+    
+    <string>fresnel_ior</string>
+    <string>ior</string>
+    <string>cutoff</string>
+    <string>affect_shadows</string>
+    <string>back_side</string>
+    <string>transparency_tex_mult</string>
+    <string>black_color</string>
+    <string>blur_gi</string>
     <!-- Vray Parameters End-->
 
     <string>cos</string>
@@ -713,36 +722,11 @@
 		<key>Escape Char in Strings 1</key>
 		<string>\</string>
 		
-		<key>Open Line Comments</key> <string>;</string>
+		<key>Open Line Comments</key> 
+		<string>//</string>
 		<key>PreferLineCommentsWhenCommenting</key>
 		<true/>
 		
-		<key>Comment Pattern</key> 
-		<string><![CDATA[
-		(?x: 
-			(\#.*?$)
-		)
-		]]></string>
-		
-		<key>String Pattern</key> 
-		<string><![CDATA[ 
-		(?x: 
-			("(\\"|[^"\r]|\\\r)*") | (?# Double-quote) 
-			(?s: 
-				<<-?(?P<delim>\w+) (?# Here-document)
-				.*?
-				(?P=delim)
-			)
-		)
-		]]></string>
-		
-		<key>Skip Pattern</key> 
-		<string><![CDATA[ 
-		(?x: 
-		(?P>comment) |
-		(?P>string)
-		)]]></string>
-	
   </dict>
 
 </dict>
